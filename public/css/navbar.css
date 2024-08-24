@@ -1,0 +1,303 @@
+/* Logo */
+
+.um-navbar-brand {
+    margin-top: 25px;
+    text-align: center;
+}
+
+/* Menu items */
+
+.um-navbar li {
+    position: relative;
+
+    list-style-type: none;
+}
+
+.um-navbar .um-navbar-item a,
+.um-navbar .um-navbar-item span {
+    color: inherit;
+    text-decoration: none;
+
+    padding: 10px;
+}
+
+.um-navbar .um-navbar-item::after {
+    position: absolute;
+    z-index: -1;
+
+    content: ' ';
+
+    visibility: hidden;
+    border-radius: 5px;
+
+    top: 0;
+    left: 0;
+    width: 0%;
+    height: 0%;
+
+    transition: all 0.3s ease-in-out;
+}
+
+.um-navbar .um-navbar-item:focus-within::after,
+.um-navbar .um-navbar-item:hover::after,
+.um-navbar .um-navbar-item.hover::after {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    visibility: visible;
+}
+
+/************************************\
+|* Navbar small screen (Smartphone) *|
+\************************************/
+
+@media screen and (max-width: 991px) {
+    /* Logo */
+
+    .um-navbar-brand {
+        padding-bottom: 25px;
+        margin-bottom: 10px;
+
+        border-bottom: 1px solid black;
+    }
+
+    /* Hamburger */
+
+    .um-navbar .um-burger {
+        position: fixed;
+        z-index: 10001;
+
+        cursor: pointer;
+
+        top: 0;
+        right: 0;
+        padding: 25px;
+
+        background-color: var(--um-light-rgb);
+
+        transition: all 0.3s ease-in-out;
+    }
+
+    .um-navbar .um-burger div {
+        background-color: var(--um-primary);
+        border-radius: 3px;
+
+        width: 3rem;
+        height: 7px;
+        margin-bottom: 8px;
+
+        transition: all 0.3s ease-in-out;
+    }
+
+    #um-burger-toggle:checked + .um-burger {
+        background-color: var(--um-primary-rgb);
+    }
+
+    #um-burger-toggle:checked + .um-burger .um-burger-top-bun {
+        transform: rotate(-45deg);
+        margin-top: 20px;
+    }
+
+    #um-burger-toggle:checked + .um-burger .um-burger-meat {
+        opacity: 0;
+    }
+
+    #um-burger-toggle:checked + .um-burger .um-burger-bottom-bun {
+        transform: rotate(45deg);
+        margin-top: -30px;
+    }
+
+    #um-burger-toggle:checked + .um-burger .um-burger-top-bun,
+    #um-burger-toggle:checked + .um-burger .um-burger-meat,
+    #um-burger-toggle:checked + .um-burger .um-burger-bottom-bun {
+        background-color: var(--um-light);
+    }
+
+    /* Main menu */
+
+    .um-navbar .um-main-menu {
+        position: fixed;
+        z-index: 9999;
+
+        top: 0;
+        width: 100%;
+
+        transform-origin: top;
+        transform: scaleY(0);
+        transition: all 0.3s ease-in-out;
+    }
+
+    #um-burger-toggle:checked + .um-burger + .um-main-menu {
+        transform: scaleY(1);
+        height: 100%;
+        overflow-y: hidden;
+
+        background-color: var(--um-primary);
+    }
+
+    .um-navbar .um-navbar-nav:first-child {
+        margin-top: 100px;
+    }
+
+    .um-navbar .um-navbar-nav {
+        padding-right: 2rem;
+    }
+
+    .um-navbar .um-navbar-nav .um-navbar-nav {
+        margin-top: 0;
+        padding-right: 0;
+    }
+
+    /* Menu items */
+
+    .um-navbar .um-navbar-item {
+        font-size: 1rem;
+
+        padding: 0;
+    }
+
+    .um-navbar .um-navbar-item a,
+    .um-navbar .um-navbar-item span {
+        display: block;
+    }
+
+    .um-navbar .um-navbar-item:not(.um-navbar-sub-menu)::after {
+        background-color: var(--um-light);
+        box-shadow: 0px 0px 20px 1px var(--um-light);
+
+        top: 0%;
+        left: 0%;
+    }
+
+    .um-navbar .um-main-menu .um-navbar-logo-mobile {
+        position: absolute;
+
+        bottom: 25px;
+        right: 25px;
+
+        opacity: 0.5;
+    }
+
+    .um-navbar li .dropdown-divider {
+        display: none;
+    }
+}
+
+/********************************\
+|* Navbar big screen (Computer) *|
+\********************************/
+
+@media screen and (min-width: 992px) {
+    /* Main menu */
+
+    .um-navbar {
+        text-align: center;
+
+        position: sticky;
+        top: -21px;
+
+        background: var(--um-light-rgb);
+        background: linear-gradient(180deg, var(--um-light-rgb) 0%, var(--um-light-rgb) 85%, transparent 100%);
+    }
+
+    .um-navbar .um-main-menu {
+        display: inline-block;
+
+        margin: 20px auto;
+        padding: 0 30px;
+
+        border-top: 1px solid black;
+        border-bottom: 1px solid black;
+    }
+
+    .um-navbar .um-main-menu .um-navbar-nav {
+        display: inline-flex;
+
+        margin-bottom: 0;
+        padding: 10px 20px;
+    }
+
+    /* Menu items */
+
+    .um-navbar .um-navbar-item {
+        font-size: 0.9rem;
+
+        padding: 10px 0px;
+    }
+
+    .um-navbar .um-navbar-item::after {
+        background-color: var(--um-primary);
+        box-shadow: 0px 0px 20px 1px var(--um-primary);
+
+        top: 50%;
+        left: 50%;
+    }
+
+    /* Sub menu */
+
+    .um-navbar .um-main-menu .um-navbar-item .um-sub-menu {
+        position: relative;
+
+        cursor: context-menu;
+
+        padding-right: 10px;
+    }
+
+    .um-navbar .um-main-menu .um-navbar-item .um-sub-menu::after {
+        position: absolute;
+
+        content: '\25BE'; /* Chevron down */
+        font-size: 1rem;
+
+        top: -1px;
+        right: 5px;
+    }
+
+    .um-navbar .um-main-menu .um-navbar-item .um-sub-menu .um-navbar-nav {
+        display: block;
+        position: absolute;
+
+        background-color: var(--um-primary);
+        border-radius: 5px;
+        box-shadow: 0px 0px 20px 1px var(--um-primary);
+
+        padding: 10px 0;
+
+        transform-origin: top;
+        transform: scaleY(0);
+        transition: all 0.3s ease-in-out;
+    }
+
+    .um-navbar .um-main-menu .um-navbar-item:focus-within .um-sub-menu .um-navbar-nav,
+    .um-navbar .um-main-menu .um-navbar-item:hover .um-sub-menu .um-navbar-nav,
+    .um-navbar .um-main-menu .um-navbar-item.hover .um-sub-menu .um-navbar-nav {
+        transform: scaleY(1);
+    }
+
+    .um-navbar .um-main-menu .um-navbar-item .um-sub-menu .um-navbar-nav .um-navbar-item {
+        text-align: left;
+        white-space: nowrap;
+    }
+
+    .um-navbar .um-main-menu .um-navbar-item .um-sub-menu .um-navbar-nav .um-navbar-item::after {
+        background-color: var(--um-light);
+    }
+
+    /* Menu separator */
+
+    .um-navbar-separator {
+        padding: 0 5px;
+    }
+
+    /* Mobile menu */
+
+    .um-navbar .um-burger {
+        display: none;
+    }
+
+    .um-navbar .um-main-menu .um-navbar-logo-mobile {
+        display: none;
+    }
+}

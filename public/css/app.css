@@ -1,0 +1,43 @@
+:root {
+    --um-primary: #cbb79c;
+    --um-light: #f8f5ee;
+
+    --um-primary-rgb: rgb(203, 183, 156);
+    --um-light-rgb: rgb(248, 245, 238);
+
+    --um-light-rgba01: rgba(248, 245, 238, 0.1);
+
+    --bs-body-font-family: 'Poppins', sans-serif;
+    --bs-breakpoint-xs: 350px;
+
+    --bs-dropdown-divider-bg: var(--um-light);
+}
+
+body {
+    background-color: var(--um-light);
+    min-width: var(--bs-breakpoint-xs);
+}
+
+a.um-link {
+    color: var(--um-light);
+    text-decoration: none;
+    transition: letter-spacing 0.3s ease-in-out;
+}
+
+a.um-link:hover {
+    text-decoration: underline;
+    letter-spacing: 0.05em;
+}
+
+@media (hover: none) {
+    a.um-link {
+        text-decoration: underline;
+        transition: none;
+    }
+}
+
+h1,
+.h1 {
+    font-family: 'Cookie', cursive;
+    font-size: calc(2.75rem + 1.5vw);
+}
