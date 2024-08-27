@@ -52,7 +52,7 @@
             </label>
             <div class="um-main-menu">
                 <ul class="um-navbar-nav">
-                    <li class="um-navbar-item"><a href="index">Accueil</a></li>
+                    <li class="um-navbar-item"><a href="{{ route('index') }}">Accueil</a></li>
                     <li class="um-navbar-item um-navbar-sub-menu">
                         <div class="um-sub-menu">
                             <span>Shopping</span>
@@ -64,30 +64,41 @@
                         </div>
                     </li>
                     <li class="um-navbar-item"><a href="TODOCreations">Créations personnelles</a></li>
-                    <li class="um-navbar-item"><a href="about">À propos</a></li>
-                    <li class="um-navbar-item"><a href="contact">Contact</a></li>
+                    <li class="um-navbar-item"><a href="TODOAbout">À propos</a></li>
+                    <li class="um-navbar-item"><a href="TODOContact">Contact</a></li>
                 </ul>
                 <ul class="um-navbar-nav">
                     <li class="um-navbar-item">
                         <a href="TODOBasket" title="Panier"><i class="bi bi-basket2-fill"></i></a>
                     </li>
+                    @auth
+                        <li class="um-navbar-item um-navbar-sub-menu">
+                            <div class="um-sub-menu">
+                                <span><i class="bi bi-person-fill-gear"></i></span>
+                                <ul class="um-navbar-nav">
+                                    <li class="um-navbar-item">
+                                        <a href="TODOProfile">
+                                            {{ Auth::user()->firstName . ' ' . Auth::user()->lastName }}
+                                        </a>
+                                    </li>
+                                    <li class="um-navbar-separator">
+                                        <hr class="dropdown-divider" />
+                                    </li>
+                                    <li class="um-navbar-item">
+                                        <a href="{{ route('auth.logout') }}">Déconnexion</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                    @endauth
 
-                    <li class="um-navbar-item um-navbar-sub-menu">
-                        <div class="um-sub-menu">
-                            <span><i class="bi bi-person-fill-gear"></i></span>
-                            <ul class="um-navbar-nav">
-                                <li class="um-navbar-item"></li>
-                                <li class="um-navbar-separator">
-                                    <hr class="dropdown-divider" />
-                                </li>
-                                <li class="um-navbar-item"><a href="logout">Déconnexion</a></li>
-                            </ul>
-                        </div>
-                    </li>
-
-                    <li class="um-navbar-item">
-                        <a href="login" title="Connexion"><i class="bi bi-person-fill-lock"></i></a>
-                    </li>
+                    @guest
+                        <li class="um-navbar-item">
+                            <a href="{{ route('auth.login') }}" title="Connexion">
+                                <i class="bi bi-person-fill-lock"></i>
+                            </a>
+                        </li>
+                    @endguest
                 </ul>
                 <img class="um-navbar-logo-mobile" src="{{ asset('img/logo.png') }}" alt="Logo UniversMode" />
             </div>

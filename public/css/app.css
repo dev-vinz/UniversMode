@@ -18,10 +18,10 @@ body {
     min-width: var(--bs-breakpoint-xs);
 }
 
-a.um-link {
+/* a.um-link {
     color: var(--um-light);
     text-decoration: none;
-    transition: letter-spacing 0.3s ease-in-out;
+    transition: letter-spacing 0.2s ease-in-out;
 }
 
 a.um-link:hover {
@@ -34,7 +34,7 @@ a.um-link:hover {
         text-decoration: underline;
         transition: none;
     }
-}
+} */
 
 h1,
 .h1 {

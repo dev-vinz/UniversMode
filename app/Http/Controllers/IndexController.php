@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use Illuminate\Contracts\View\View;
 
 class IndexController extends Controller
 {
@@ -14,7 +14,11 @@ class IndexController extends Controller
     |*             GET             *|
     \* * * * * * * * * * * * * * * */
 
-    public function index()
+    /**
+     * Display the index view.
+     * @return View The view.
+     */
+    public function index(): View
     {
         return view('index');
     }

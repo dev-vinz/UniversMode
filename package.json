@@ -2,16 +2,20 @@
     "private": true,
     "type": "module",
     "scripts": {
-        "dev": "vite",
-        "build": "vite build"
+        "clear": "php artisan optimize:clear",
+        "db:update": "php artisan migrate",
+        "db:refresh": "php artisan migrate:refresh --seed",
+        "deploy": "php artisan optimize",
+        "log": "powershell -Command \"Get-Content -Path 'storage/logs/laravel.log' -Wait -Tail 10\"",
+        "start": "php artisan serve"
     },
     "devDependencies": {
         "@prettier/plugin-php": "^0.22.2",
-        "axios": "^1.6.4",
+        "axios": "^1.7.5",
         "laravel-vite-plugin": "^1.0",
         "prettier": "^3.3.3",
         "prettier-plugin-blade": "^2.1.19",
         "prettier-plugin-tailwindcss": "^0.6.6",
-        "vite": "^5.0"
+        "vite": "^5.4"
     }
 }
