@@ -1,7 +1,8 @@
 <?php
 
-use App\Http\Controllers\IndexController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\IndexController;
+use App\Http\Controllers\NotFoundController;
 use App\Http\Middleware\Auth;
 use App\Http\Middleware\Guest;
 use Illuminate\Support\Facades\Route;
@@ -84,3 +85,9 @@ Route::get('/', [IndexController::class, 'index']) //
 /* * * * * * * * * * * * * * * *\
 |*            DELETE           *|
 \* * * * * * * * * * * * * * * */
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *\
+|*                      NotFoundController                     *|
+\* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+
+Route::fallback(NotFoundController::class);
