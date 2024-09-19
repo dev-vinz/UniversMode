@@ -1,0 +1,17 @@
+.um-banner {
+    padding: 1rem;
+
+    margin: 1rem 0;
+
+    background-color: var(--um-primary);
+
+    border-radius: 5px;
+}
+
+.um-banner h3 {
+    max-width: var(--bs-breakpoint-md);
+
+    margin: 0 auto;
+
+    text-align: center;
+}

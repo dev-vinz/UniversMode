@@ -1,7 +1,7 @@
 @extends('layout.app')
 
 @push('styles')
-    <link rel="stylesheet" href="{{ asset('css/user/login.css') }}" />
+    <link rel="stylesheet" href="{{ asset('css/auth/login.css') }}" />
 @endpush
 
 @section('content')

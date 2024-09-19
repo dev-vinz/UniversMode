@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Auth\Events\PasswordReset;
 use Illuminate\Contracts\View\View;
+use Illuminate\Foundation\Auth\EmailVerificationRequest;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -76,6 +77,20 @@ class AuthController extends Controller
     public function resetPassword(string $token): View
     {
         return view('auth.reset-password', ['token' => $token]);
+    }
+
+    /**
+     * Verify the user's email.
+     * @param EmailVerificationRequest $request The request object.
+     * @return RedirectResponse The redirect response.
+     */
+    public function verifyEmail(EmailVerificationRequest $request): RedirectResponse
+    {
+        $request->fulfill();
+
+        return redirect() //
+            ->route('user.profile')
+            ->with('status', 'Votre adresse mail a été vérifiée.');
     }
 
     /* * * * * * * * * * * * * * * *\
@@ -154,6 +169,20 @@ class AuthController extends Controller
     }
 
     /**
+     * Send the email verification link.
+     * @param Request $request The request object.
+     * @return RedirectResponse The redirect response.
+     */
+    public function sendEmailVerificationLink(Request $request): RedirectResponse
+    {
+        // Send the email verification link.
+        $request->user()->sendEmailVerificationNotification();
+
+        return back() //
+            ->with('status', 'Un lien de vérification a été envoyé à votre adresse mail.');
+    }
+
+    /**
      * Send the password reset link.
      * @param Request $request The request object.
      * @return RedirectResponse The redirect response.
@@ -177,6 +206,11 @@ class AuthController extends Controller
             : back()->withErrors(['email' => "Nous n'avons pas pu trouver d'utilisateur avec cette adresse mail."]);
     }
 
+    /**
+     * Store the user.
+     * @param Request $request The request object.
+     * @return RedirectResponse The redirect response.
+     */
     public function store(Request $request): RedirectResponse
     {
         // Validate the request.

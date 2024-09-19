@@ -11,12 +11,6 @@ body {
     display: none;
 }
 
-/* @media screen and (min-width: 992px) {
-    .um-navbar {
-        background: none;
-    }
-} */
-
 .um-login-container {
     max-width: var(--bs-breakpoint-xs);
 

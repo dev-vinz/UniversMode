@@ -18,23 +18,11 @@ body {
     min-width: var(--bs-breakpoint-xs);
 }
 
-/* a.um-link {
-    color: var(--um-light);
-    text-decoration: none;
-    transition: letter-spacing 0.2s ease-in-out;
-}
-
-a.um-link:hover {
-    text-decoration: underline;
-    letter-spacing: 0.05em;
-}
-
-@media (hover: none) {
-    a.um-link {
-        text-decoration: underline;
-        transition: none;
+@media screen and (min-width: 992px) {
+    .w-lg-100 {
+        width: 100%;
     }
-} */
+}
 
 h1,
 .h1 {

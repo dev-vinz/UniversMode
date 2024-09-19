@@ -77,7 +77,7 @@
                                 <span><i class="bi bi-person-fill-gear"></i></span>
                                 <ul class="um-navbar-nav">
                                     <li class="um-navbar-item">
-                                        <a href="TODOProfile">
+                                        <a href="{{ route('user.profile') }}">
                                             {{ Auth::user()->firstName . ' ' . Auth::user()->lastName }}
                                         </a>
                                     </li>

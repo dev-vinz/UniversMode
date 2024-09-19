@@ -16,9 +16,8 @@ class EmailVerified
      */
     public function handle(Request $request, Closure $next): Response
     {
-        // TODO: Create a page for users to verify their email address.
         if (!Auth::user()->email_verified_at) {
-            return redirect()->route('index');
+            return redirect()->route('user.profile');
         }
 
         return $next($request);

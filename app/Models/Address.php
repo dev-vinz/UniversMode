@@ -20,7 +20,7 @@ class Address extends Model
      *
      * @var array<int, string>
      */
-    protected $fillable = ['street', 'number', 'city', 'npa', 'country'];
+    protected $fillable = ['street', 'number', 'city', 'npa', 'country', 'user_id'];
 
     /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *\
     |*                           PUBLIC                            *|
